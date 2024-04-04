@@ -1,0 +1,81 @@
+title: iGive Customer Support
+email: support@igive.com
+description: >-
+  Have questions about using iGive.com or our browser extension when shopping online to raise money for your favorite local cause?
+baseurl: ""
+url: "https://support.igive.com"
+twitter_username: iGiveDoYou
+facebook_username: iGive
+
+# Build settings
+# theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-toc
+
+collections:
+  pages:
+    output: true
+
+keep_files: ["pagefind"]
+
+include: ['.htaccess']
+exclude: ['readme.md', 'Gemfile.lock', 'Gemfile']
+toc:
+  list_class: list-unstyled
+  item_class: toc-entry toc-h4 mb-2
+
+defaults:
+  - scope:
+      path: "_pages"
+    values:
+      layout: "page"
+      permalink: "/:title/index.html"
+  - scope:
+      type: posts
+    values:
+      permalink: "/:categories/:title/index.html"
+      layout: "post"
+      toc: true
+
+pagination:
+  enabled: true
+  per_page: 1000
+  permalink: '/page-:num'
+  title: ':title'
+  limit: 2
+  sort_field: date
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+
+autopages:
+  enabled: true
+  categories:
+    layouts:
+      - list.html
+    title: ':cat'
+    permalink: '/:cat'
+    slugify:
+      mode: default
+      case: true
+  tags:
+    layouts:
+      - list.html
+    title: ':tag'
+    permalink: '/tag/:tag'
+    slugify:
+      mode: default
+      case: true
+  collections:
+    layouts:
+      - list.html
+    title: ':collection'
+    permalink: '/collection/:coll'
+    slugify:
+      mode: default
+      case: true
+sass:
+  style: compressed

@@ -2,4 +2,192 @@
 layout: default
 ---
 
-{{ content }}
+<!-- Page hero -->
+<div class="bg-shape bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="offset-xl-1 col-xl-10 col-lg-12 col-md-12 col-12">
+                <div class="pt-lg-18 pb-lg-16 py-12 ">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 col-md-12 col-12 mb-3 d-none d-lg-block">
+                            {% include breadcrumbs.html %}
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-12 mb-3">
+                            {% assign tag_slug = page.title %}
+                            {% assign category_slug = page.title %}
+                            {% assign tag_data = site.data.tags | where : "slug",
+                            tag_slug | first %}
+                            {% assign category_data = site.data.categories | where : "slug",
+                            category_slug | first %}
+
+                            <h1 class="h2 text-white mb-2" data-pagefind-meta="title">
+                                {% if tag_data %}
+                                    {{ tag_data.title }}
+                                    {% elsif category_data %}
+                                    {{ category_data.title }}
+                                {% else %}
+                                    {{ page.title | replace: '-', ' ' }}
+                                {% endif %}
+                            </h1>
+
+                            <p class="text-white lead">
+                                {% if tag_data %}
+                                    {{ tag_data.description }}
+                                    {% elsif category_data %}
+                                    {{ category_data.description }}
+                                    {% elsif page.description %}
+                                    {{ page.description }}
+                                {% else %}
+                                    Get iGive account, profile, our favorite tips, and hands-on help.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pb-10 mt-n10">
+    <div class="container">
+        <div class="row">
+            <div class="offset-lg-1 col-lg-10 col-md-12 col-12">
+
+                <!-- main content -->
+                <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4 p-lg-7">
+                        <!-- article -->
+                        <div id="post-content">
+
+                            <div class="row">
+
+                                <div class="col-12 col-md-4 order-md-last">
+
+                                    <div class="d-none d-lg-block">
+                                        <form action="/search/" method="get">
+                                            <div class="input-group mb-3 border border-3 rounded-3 border-white bg-white">
+                                                <input type="search" name="q" class="form-control border-1" placeholder="Ask a question" aria-label="Ask a question" aria-describedby="searchButton">
+                                                <button class="btn btn-primary" type="submit" id="searchButton">Search</button>
+                                            </div>
+                                        </form>
+                                        <hr/>
+                                    </div>
+                                    <div id="table-of-contents">
+                                        <h5>On this page:</h5>
+                                        {{ content | toc_only }}
+                                    </div>
+                                    <hr/>
+                                    <div class="d-none d-lg-block text-center">
+                                        <a href="{{ 'contact' | absolute_url }}" class="btn btn-outline-primary mb-4 w-100">Get help from a real person</a>
+                                    </div>
+                                </div>
+
+                                <hr class="my-5 d-md-none">
+
+                                <div class="col-12 col-md-8">
+                                    <span class="sr-only" data-pagefind-sort="date">{{ post.date }}</span>
+                                    <div id="markdown-content" data-pagefind-body>
+                                        {{ content | inject_anchors }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% for category in page.categories %}
+                            <a href="{{ category | slugify | absolute_url }}" class="badge bg-secondary-soft text-uppercase fw-bold">{{ category | replace: '-', ' ' }}</a>
+                        {% endfor %}
+                        {% for tag in page.tags %}
+                            <a href="{{ tag | slugify | prepend: 'tag/' | absolute_url }}" class="badge bg-secondary-soft text-uppercase fw-bold" >{{ tag | replace: '-', ' ' }}</a>
+                        {% endfor %}
+                    </div>
+
+                    <hr class="my-6">
+
+                    <!-- Feedback section -->
+                    <div id="article-feedback" class="text-center mb-4 p-4">
+                        <p class="h5 mb-3">Was this article helpful?</p>
+                        <button id="feedback-yes" class="btn btn-primary btn-sm">Yes</button>
+                        <button id="feedback-no" class="btn btn-light btn-sm">No</button>
+                        <!-- Container for the alert -->
+                        <div id="feedback-alert-container" style="display: none;"></div>
+                    </div>
+
+                    <script>
+                        var contactUrl = "{{ '/contact/' }}";
+
+                        document.addEventListener('DOMContentLoaded', function () {
+                            document
+                                .getElementById('feedback-yes')
+                                .addEventListener('click', function () {
+                                    displayFeedbackAlert('primary', 'Thank you for your feedback! 🥳');
+                                });
+
+                            document
+                                .getElementById('feedback-no')
+                                .addEventListener('click', function () {
+                                    displayFeedbackAlert('warning', 'We are sorry to hear that. Please <a href="' + contactUrl + '">contact us here</a> or use the chat button in bottom-right of this browser window for further assistance.');
+                                });
+                            function displayFeedbackAlert(alertType, message) {
+                                var alertContainer = document.getElementById('feedback-alert-container');
+                                alertContainer.innerHTML = '<div class="alert alert-' + alertType + '" role="alert">' + message + '</div>';
+                                alertContainer.style.display = 'block';
+
+                                // Hide the feedback buttons
+                                document
+                                    .getElementById('feedback-yes')
+                                    .style
+                                    .display = 'none';
+                                document
+                                    .getElementById('feedback-no')
+                                    .style
+                                    .display = 'none';
+                            }
+                        });
+                    </script>
+
+                    <hr class="my-6">
+
+                    <!-- related articles -->
+                    <div id="related-articles" class="p-4">
+                        {% assign featured_posts = site.posts | where : "featured",
+                        true %}
+
+                        <h4 class="mb-4">Related Articles</h4>
+                        <div class="row">
+                            <!-- left post list -->
+                            <div class="col-lg-6 col-md-12 col-12">
+                                <ul class="list-unstyled mb-0">
+                                    {% for item in featured_posts limit : 5 %}
+                                        <li>
+                                            <a href="{{ item.url | absolute_url }}" class="h5 mb-2 text-inherit">{{ item.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <!-- right post list -->
+                            <div class="col-lg-6 col-md-12 col-12">
+                                <ul class="list-unstyled mb-0">
+                                    {% for item in featured_posts offset : 5 limit : 5 %}
+                                        <li>
+                                            <a href="{{ item.url | absolute_url }}" class="h5 mb-2 text-inherit">{{ item.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-6">
+
+                    {% include faq.html %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

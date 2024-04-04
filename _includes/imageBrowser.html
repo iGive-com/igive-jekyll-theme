@@ -1,0 +1,31 @@
+<div class="browser-window mb-3">
+    <div class="browser-window-row">
+        <div class="browser-window-column left">
+            <span class="browser-window-dot" style="background:#ED594A;"></span>
+            <span class="browser-window-dot" style="background:#FDD800;"></span>
+            <span class="browser-window-dot" style="background:#5AC05A;"></span>
+        </div>
+        <div class="browser-window-column middle">
+            <input class="browser-window-input" type="text" value="{{ include.alt | default: 'https://www.igive.com' }}" disabled>
+
+        </div>
+        <div class="browser-window-column right">
+            <div style="float:right">
+                <span class="browser-window-bar"></span>
+                <span class="browser-window-bar"></span>
+                <span class="browser-window-bar"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="browser-window-content">
+        {% include image.html 
+            src=include.src 
+            width=include.width 
+            height=include.height 
+            format=include.format 
+            quality=include.quality 
+            alt=include.alt 
+        %}
+    </div>
+</div>

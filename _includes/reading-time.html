@@ -1,0 +1,4 @@
+{% capture words %}
+{{ content | number_of_words }}
+{% endcapture %}
+{{ words | divided_by: 180 | append: ' minutes to read' }} <!-- divided_by value is the words per minute -->

@@ -1,0 +1,105 @@
+---
+title: Search
+permalink: /search/
+---
+<section class="products-head mb-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">Search Results</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<link href="{{ '/pagefind/pagefind-ui.css' | absolute_url }}" rel="stylesheet">
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div id="search"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PageFind Settings -->
+<script>
+    function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+    $(function () {
+
+
+        let pagefind = new PagefindUI({
+            element: "#search",
+            pageSize: 20,
+            showSubResults: false,
+            showImages: false,
+            excerptLength: 15,
+            showEmptyFilters: false,
+            resetStyles: false,
+            debounceTimeoutMs: 500,
+            autofocus: true,
+            sort: {
+                date: "desc"
+            }
+        });
+        var sterm = getParameterByName("q");
+        if (sterm) {
+            pagefind.triggerSearch(sterm);
+            $.post( "https://igive.objectif.app/support/log.php", { message: "searchquery", content:sterm } );
+        }
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {});
+
+    const observer = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'childList' && mutation.target.classList.contains('pagefind-ui__results')) {
+                const searchInput = document.querySelector('.pagefind-ui__search-input');
+                if (searchInput) {
+                    $.post( "https://igive.objectif.app/support/log.php", { message: "searchquery", content: searchInput.value } );
+
+                    console.log(searchInput.value);
+                }
+            }
+        }
+    });
+
+    const targetNode = document.querySelector('#search');
+    observer.observe(targetNode, { childList: true, subtree: true });
+</script>
+<hr/>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+      
+          
+<div class="col-lg-6 col-md-6 col-12">
+    <div class="card rounded-3 mb-5 text-center">
+        <div class="card-body p-6">
+            <h3>Are you with a cause?</h3>
+            <p>If you represent a cause, we have more information available to you.</p>
+            <a href="{{ 'causes' | absolute_url }}" class="btn btn-outline-primary">iGive Cause Information</a>
+        </div>
+    </div>
+</div>
+<!-- cta -->
+<div class="col-lg-6 col-md-6 col-12">
+    <div class="card rounded-3 mb-5 text-center ">
+        <div class="card-body p-6">
+            <h3>Talk to us</h3>
+            <p>Get connected with a real person who can help answer all of your questions</p>
+            <a href="{{ 'contact' | absolute_url }}" class="btn btn-outline-primary">Get In Touch</a>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</section>

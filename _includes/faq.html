@@ -1,0 +1,44 @@
+<div class="card-header bg-white py-3">
+    <h4 class="mb-0">Frequently Asked Questions</h4>
+</div>
+<!-- card body -->
+<div class="card-body p-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                {% for item in site.data.faq %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ forloop.index }}" aria-expanded="false" aria-controls="faq{{ forloop.index }}">
+                                {{ item.question}}
+                            </button>
+                        </h2>
+                        <div id="faq{{ forloop.index }}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">{{ item.answer }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {% for item in site.data.faq %}
+                {
+                    "@type": "Question",
+                    "name": "{{ item.question | escape}}",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "{{ item.answer | escape }}"
+                    }
+                }{% if forloop.last %}
+                {% else %},{% endif %}
+            {% endfor %}
+        ]
+    }
+</script>

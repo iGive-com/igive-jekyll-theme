@@ -1,0 +1,82 @@
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TTQQRM');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content=""/>
+
+    <title>
+        {% if page.title and page.title != 'Home' %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    {% assign pagecontent_description = page.content | markdownify | replace : '.',
+    '. ' | replace : '</h2>',
+    ': ' | replace : '</h3>',
+    ': ' | replace : '</h4>',
+    ': ' | strip_html | strip_newlines | replace : '  ',
+    ' ' | truncate : 160 %}
+    <meta name="description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}">
+
+    <link rel="shortcut icon" type="image/png" href="{{ '/assets/images/icon-192x192.png' | absolute_url }}">
+    <link rel="shortcut icon" sizes="192x192" href="{{ '/assets/images/icon-192x192.png' | absolute_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/images/icon-192x192.png' | absolute_url }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | absolute_url }}">
+
+    <!-- Facebook integration -->
+    <meta property="og:title" content="{{ page.title }}"/>
+    {% if page.image %}<meta property="og:image" content="{{ page.image }}"/>{% endif %}
+    <meta property="og:url" content="{{ page.url }}"/>
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% elsif page.layout == 'page' %}page{% else %}website{% endif %}">
+    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
+
+    <!-- Twitter integration -->
+    <meta name="twitter:card" content="summary">
+    {% if site.twitter_username %}<meta name="twitter:site" content="https://www.twitter.com/{{ site.twitter_username }}">{% endif %}
+    <meta name="twitter:title" content="{{ page.title }}"/>
+    {% if page.image %}<meta name="twitter:image" content="{{ page.image }}"/>{% endif %}
+    <meta name="twitter:url" content="{{ page.url }}"/>
+    <meta name="twitter:description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | absolute_url }}">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ 'sitemap.xml' | absolute_url }}"/>
+    <link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' | absolute_url }}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}">
+    <script src="https://kit.fontawesome.com/30103c6448.js" crossorigin="anonymous"></script>
+    <script src="{{ '/assets/js/jquery.min.js' }}"></script>
+    <script>
+        // Redirect to search page with ?q= query for PageFind results
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) 
+                return null;
+            if (!results[2]) 
+                return "";
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Crisp Chatbot
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "520aa220-9642-49ba-81ac-1a46eef47fc2";
+        (function () {
+            d = document;
+            s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d
+                .getElementsByTagName("head")[0]
+                .appendChild(s);
+        })();
+    </script>
+</head>

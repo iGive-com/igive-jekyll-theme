@@ -1,0 +1,25 @@
+<nav id="breadcrumbs" aria-label="breadcrumb">
+  <ol class="breadcrumb mb-2 small text-uppercase">
+
+    <li class="breadcrumb-item">
+      <a href="{{ '/' | absolute_url }}" class="text-white" >Home</a>
+    </li>
+
+    {% if page.categories and page.categories.size > 0 %}
+      {% for category in page.categories %}
+        {% assign category_slug = category | slugify %}
+        {% assign category_data = site.data.categories | where : "slug", category_slug | first %}
+        {% if category_data %}
+          <li class="breadcrumb-item">
+            <a href="{{ category_data.slug | absolute_url }}" class="text-white" >{{ category_data.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    <li class="breadcrumb-item text-white active" aria-current="page">
+      {{ page.title | replace: '-', ' ' }}
+    </li>
+
+  </ol>
+</nav>
