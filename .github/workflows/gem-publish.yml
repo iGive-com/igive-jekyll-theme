@@ -15,13 +15,13 @@ jobs:
       packages: write
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Ruby 3.3
-    uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.3
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    run: bundle exec rake
+      - uses: actions/checkout@v3
+      - name: Set up Ruby 3.3
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      run: bundle exec rake
 
     - name: Publish to GPR
       run: |
