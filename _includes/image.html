@@ -1,0 +1,11 @@
+{% if jekyll.environment == "production" %}
+<img src="https://images.weserv.nl/?url={{ include.src | absolute_url }}&w={{ include.width | default: 500 }}&h={{ include.height | default: 500 }}&output={{ include.format | default: webp }}&q={{ include.quality | default: 80 }}&fit=cover&a=entropy"
+        alt="{{ include.alt }}"
+        class="{{ include.class | default: 'img-fluid' }}" />
+{% else %}
+<img src="{{ include.src | absolute_url }}" 
+        width="{{ include.width | default: 500 }}" 
+        height="{{ include.height | default: 500 }}" 
+        alt="{{ include.alt }}"
+        class="{{ include.class | default: 'img-fluid' }}" />
+{% endif %}

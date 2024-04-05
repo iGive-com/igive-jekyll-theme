@@ -1,0 +1,17 @@
+- platform: chrome
+  url: https://chrome.google.com/webstore/detail/igcjdamjhkmdccbmbilbpabpofenchge
+
+- platform: edge
+  url: https://microsoftedge.microsoft.com/addons/detail/igive-button/kjilalnbmgadedjdojlmofpalendejkp
+
+- platform: firefox
+  url: https://addons.mozilla.org/en-US/firefox/addon/igive-button/
+
+- platform: safari
+  url: https://apps.apple.com/us/app/igive-button/id1498568131?mt=12
+
+- platform: mobile
+  url: https://www.igive.com/app
+
+- platform: unknown
+  url: https://www.igive.com/button

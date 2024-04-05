@@ -1,0 +1,10 @@
+site: _site
+output_subdir: pagefind
+
+
+force_language: en
+# glob: "*[!s]/**/*.{html}"
+exclude_selectors:
+  - "#links"
+  - "#recent-posts"
+  - "footer"

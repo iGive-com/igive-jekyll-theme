@@ -1,0 +1,49 @@
+//
+// user-variables.scss
+// Use this to overwrite Bootstrap and Coach variables
+//
+// Example of a variable override to change Coach primary color
+// Remove the "//" to comment it in and see it in action!
+
+$blue: #3974ba;
+$indigo: #577590;
+$purple: #A648F6;
+$pink: #E73C7E;
+$red: #f94144;
+$orange: #ea8900;
+$yellow: #FDD023;
+$green: #23D5AB;
+$teal: #43aa8b;
+$cyan: #4d908e;
+$white: #ffffff;
+
+$primary: $blue;
+$secondary: $orange;
+// $--coach-modal-box-shadow: #000000;
+
+// $box-shadow-sm: 0px 4px 8px rgba(#000000, 0.15);
+
+// // $list-group-color: $blue;
+// // $list-group-bg: $white;
+// $list-group-border-color: none;
+// $list-group-border-width: 0px;
+// $list-group-border-radius: 0px;
+// // $list-group-item-padding-x: ;
+// // $list-group-item-padding-y: ;
+// // $list-group-action-color: ;
+// $list-group-action-hover-color: $white;
+// $list-group-hover-bg: $primary;
+// $list-group-action-active-color: $white;
+// $list-group-action-active-bg: $primary;
+// // $list-group-disabled-color: ;
+// // $list-group-disabled-bg: ;
+// $list-group-active-color: $white;
+// $list-group-active-bg: $primary;
+// // $list-group-active-border-color: none;
+
+// // Rest of your custom styles
+// // .custom-list-group {
+// // }
+
+// // .custom-list-group-item {
+// // }

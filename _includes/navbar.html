@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-default fixed-top navbar-dark mb-0">
+    <div class="container d-flex flex-nowrap justify-content-between">
+
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand @@brandLogo me-1" href="{{ '/' | absolute_url }}"><img src="{{ '/assets/images/logo-igive.png' | absolute_url }}" alt="iGive Logo" height="36" width="140"></a>
+            <span class="small text-white fw-bold ps-1 pt-2">
+                Help Center
+            </span>
+        </div>
+
+        <div>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar top-bar mt-0"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-default">
+
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <ul class="navbar-nav ms-auto me-lg-3">
+
+                    <li class="nav-item dropdown disabled">
+                        <a class="nav-link d-lg-none" href="#">Menu</a>
+                    </li>
+
+                    <li class="nav-item d-lg-none p-3">
+                        <form action="/search/" method="get">
+                            <div class="input-group mb-3 border border-3 rounded-3 border-white bg-white">
+                                <input type="search" name="q" class="form-control border-1" placeholder="Ask a question" aria-label="Ask a question" aria-describedby="searchButton">
+                                <button class="btn btn-primary" type="submit" id="searchButton">Search</button>
+                            </div>
+                        </form>
+                    </li>
+
+                    {% for item in site.data.navbar %}
+                        {% if item.subitems %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ forloop.index }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ item.title }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-arrow dropdown-menu-xl-start" aria-labelledby="navbarDropdown{{ forloop.index }}">
+                                    {% for subitem in item.subitems %}
+                                        <li>
+                                            <a class="dropdown-item" href="{{ subitem.url | absolute_url }}">{{ subitem.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ item.url | absolute_url }}">
+                                    {{ item.title }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="d-flex align-items-center">
+                        <a href="https://www.igive.com/default.cfm" class="btn btn-outline-white btn-sm">Visit iGive.com</a>
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</nav>

@@ -2,4 +2,74 @@
 layout: default
 ---
 
-{{ content }}
+<!-- Page hero -->
+<div class="bg-shape bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="offset-xl-1 col-xl-10 col-lg-12 col-md-12 col-12">
+                <div class="pt-lg-18 pb-lg-16 py-12 ">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 col-md-12 col-12 mb-3 d-none d-lg-block">
+                            {% include breadcrumbs.html %}
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            {% assign tag_slug = page.title %}
+                            {% assign category_slug = page.title %}
+                            {% assign tag_data = site.data.tags | where : "slug",
+                            tag_slug | first %}
+                            {% assign category_data = site.data.categories | where : "slug",
+                            category_slug | first %}
+
+                            <p class="h2 text-white mb-2">
+                                {% if tag_data %}
+                                    {{ tag_data.title }}
+                                    {% elsif category_data %}
+                                    {{ category_data.title }}
+                                {% else %}
+                                    {{ page.title }}
+                                {% endif %}
+                            </p>
+
+                            <p class="text-white lead">
+                                {% if tag_data %}
+                                    {{ tag_data.description }}
+                                    {% elsif category_data %}
+                                    {{ category_data.description }}
+                                    {% elsif page.description %}
+                                    {{ page.description }}
+                                {% else %}
+                                    Need help? We've got hands-on help for you!
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <form action="/search/" method="get">
+                                <div class="input-group mb-3 border border-3 rounded-3 border-white bg-white">
+                                    <input type="search" name="q" class="form-control border-0" placeholder="Ask a question" aria-label="Ask a question" aria-describedby="searchButton">
+                                    <button class="btn btn-primary" type="submit" id="searchButton">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pb-10 mt-n10">
+    <div class="container">
+        <div class="row">
+            <div class="offset-lg-1 col-lg-10 col-md-12 col-12">
+
+                <!-- main content -->
+                <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4 p-lg-7">
+                        {{ content }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+- title: Using iGive
+  items: 
+    - href: /getting-started/shopping-to-support/
+      title: How iGive Works
+    - href: https://www.igive.com/html/allcauses.cfm
+      title: Find a Cause to Support
+    - href: https://www.iGive.com/button
+      title: Install Browser Extension
+    - href: https://www.iGive.com/app
+      title: iGive Mobile App
+
+- title: Causes & Nonprofits
+  items:
+    - href: https://support.igive.com/kb/causes/listing-a-cause/
+      title: List Your Cause
+    - href: https://www.iGive.com/causetoolbox/
+      title: Marketing Tools and Tips
+    - href: /contact/
+      title: Contact Us
+
+- title: About iGive
+  items:
+    - href: https://support.igive.com/kb/merchants/info-for-merchants/
+      title: Merchant Information
+    - href: https://www.iGive.com/privacy.cfm
+      title: Privacy Policy
+      newtab: true
+    - href: https://www.iGive.com/tos.cfm
+      title: Terms
+      newtab: true
+    - href: https://www.iGive.com/unsubscribe.cfm
+      title: Unsubscribe
+      newtab: true
+
+- title: Need Help?
+  items: 
+    - href: /contact/
+      title: Send us a message
+      class: "btn btn-white mb-4 w-100"
+      newtab: false

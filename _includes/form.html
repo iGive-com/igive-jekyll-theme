@@ -1,0 +1,114 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="offset-xxl-2 col-xxl-8 col-lg-10 offset-lg-1 col-md-12 col-12">
+                <div id="contactForm" class="card-body p-4 p-lg-8">
+                    <div class="mb-5 text-center">
+                        <h2 class="mb-3">How can we help?</h2>
+                        <p>We are here to help answer all of your questions. Reach out to us and we'll respond as soon as we can.</p>
+                    </div>
+
+                    <form class="row g-3 needs-validation" id="contactform" novalidate>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="hearingFormName" placeholder="Your Name" name="name" required autocorrect="off" autocomplete="name">
+                                <label for="hearingFormName">Name<span class="text-danger">*</span></label>
+                                <div class="invalid-feedback">Please enter your name.</div>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="hearingFormEmail" placeholder="Email" name="email" required autocorrect="off" autocomplete="email">
+                                <label for="hearingFormEmail">Email<span class="text-danger">*</span></label>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <select class="form-select" id="selectpurpose" name="group" required autocorrect="off" autocomplete="off">
+                                    <option value="">I am a...</option>
+                                    <option value="1">User / Member</option>
+                                    <option value="4">Cause / Charity</option>
+                                    <option value="9">Merchant</option>
+                                </select>
+                                <label for="selectpurpose">Select...<span class="text-danger">*</span></label>
+                                <div class="invalid-feedback">Please select a purpose.</div>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="businessFormtext" name="body"style="height:100px" minlength="20" maxlength="500" required autocorrect="off" autocomplete="off"></textarea>
+                                <label for="businessFormtext">How can we help?<span class="text-danger">*</span></label>
+                                <div class="invalid-feedback">Please enter a message between 20 and 500 characters in length.</div>
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Send</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <script>
+                        (() => {
+                            'use strict';
+
+                            // Function to handle form submission
+                            const handleFormSubmit = (event) => {
+                                event.preventDefault(); // Prevent form submission
+                                const form = event.target;
+
+                                // Check if form is valid
+                                if (!form.checkValidity()) {
+                                    event.stopPropagation();
+                                } else {
+                                    const formData = new FormData(form);
+                                    const xhr = new XMLHttpRequest();
+                                    xhr.open('POST', 'https://igive.objectif.app/support/newticket.php', true);
+                                    xhr.onreadystatechange = function () {
+                                        if (xhr.readyState === 4 && xhr.status === 200) {
+                                            const successAlert = document.createElement('div');
+                                            successAlert
+                                                .classList
+                                                .add('alert', 'alert-success');
+                                            successAlert.setAttribute('role', 'alert');
+                                            successAlert.textContent = 'Message sent successfully!';
+                                            document
+                                                .getElementById('contactForm')
+                                                .innerHTML = '';
+                                            document
+                                                .getElementById('contactForm')
+                                                .appendChild(successAlert);
+                                        }
+                                    };
+                                    xhr.send(formData);
+                                }
+                                form
+                                    .classList
+                                    .add('was-validated');
+                            };
+
+                            // Function to apply custom Bootstrap validation styles to forms
+                            const applyValidationStyles = () => {
+                                const forms = document.querySelectorAll('.needs-validation');
+                                Array
+                                    .from(forms)
+                                    .forEach(form => {
+                                        form.addEventListener('submit', handleFormSubmit, false);
+                                    });
+                            };
+
+                            // Call the function to apply validation styles
+                            applyValidationStyles();
+                        })();
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

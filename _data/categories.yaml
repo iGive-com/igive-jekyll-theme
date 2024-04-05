@@ -1,0 +1,39 @@
+- slug: getting-started
+  title: Getting Started
+  description: Ready to start using iGive? We're here to help you get started.
+  icon: fa-solid fa-sun
+
+- slug: igive-button
+  title: iGive Button
+  description: Install the free iGive browser extension to easily support your cause when you shop online.
+  icon: fa-regular fa-window-restore
+
+- slug: common-issues
+  title: Common Issues
+  description: Having a problem? We've got resources to help answer your questions.
+  icon: fa-solid fa-file-circle-question
+
+- slug: my-account
+  title: Managing Your Account
+  description: Learn how to change which cause you support, or update your account information.
+  icon: fa-solid fa-gear
+
+- slug: troubleshooting
+  title: Troubleshooting
+  description: Having problems? Here are tutorials to resolve the most-frequently reported problems by iGive users.
+  icon: fa-solid fa-vial
+
+- slug: causes
+  title: Causes
+  description: Do you represent a cause or charity? Learn how to get started with iGive.
+  icon: fa-solid fa-vial
+
+- slug: merchants
+  title: Merchants
+  description: Do you represent a retailer? Learn how to get started with iGive.
+  icon: fa-solid fa-vial
+
+- slug: apps
+  title: Mobile Apps
+  description: Want to use iGive from your phone? Check out the iGive native mobile apps for iOS and Android!
+  icon: fa-solid fa-mobile-screen
