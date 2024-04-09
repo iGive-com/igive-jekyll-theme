@@ -1,44 +1,4 @@
-- slug: chrome
-  title: Chrome
-  description: Support and tips for our extension on Chrome.
-  icon: fa-brands fa-chrome
-
-- slug: firefox
-  title: Firefox
-  description: Guidance for using our extension in Firefox.
-  icon: fa-brands fa-firefox-browser
-
-- slug: safari
-  title: Safari
-  description: Help for our extension users on Safari.
-  icon: fa-brands fa-safari
-
-- slug: edge
-  title: Edge
-  description: Assistance with our extension on Microsoft Edge.
-  icon: fa-brands fa-edge
-
-- slug: igive-101
-  title: iGive 101
-  description: The basics to getting started with iGive
-  icon: fa-solid fa-sun
-
-- slug: ios-app
-  title: iOS App
-  description: Support for our iOS app users.
-  icon: fa-brands fa-apple
-
-- slug: android-app
-  title: Android App
-  description: Help and tips for our Android app users.
-  icon: fa-brands fa-android
-
-- slug: marketing-tips
-  title: Marketing Tips
-  description: Templates, guides, visuals and best-practices for promoting iGive.
-  icon: fa-solid fa-globe
-
-- slug: webinar
-  title: Webinar
-  description: Join us for interactive online discussions about iGive.
-  icon: fa-solid fa-globe
+- slug: tag-plcaeholder
+  title: Tag Placeholder
+  description: This is a tag description placeholder
+  icon: fa-solid fa-triangle-exclamation
