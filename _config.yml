@@ -8,12 +8,6 @@ facebook_username: iGive
 gtm: GTM-TTQQRM
 logo_tag: Help Center
 
-# Build settings
-plugins:
-  - jekyll-feed
-  - jekyll-redirect-from
-  - jekyll-toc
-
 collections:
   pages:
     output: true
