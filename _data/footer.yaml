@@ -1,40 +1,36 @@
-- title: Using iGive
-  items: 
-    - href: /getting-started/shopping-to-support/
-      title: How iGive Works
-    - href: https://www.igive.com/html/allcauses.cfm
-      title: Find a Cause to Support
-    - href: https://www.iGive.com/button
-      title: Install Browser Extension
-    - href: https://www.iGive.com/app
-      title: iGive Mobile App
-
-- title: Causes & Nonprofits
-  items:
-    - href: https://support.igive.com/kb/causes/listing-a-cause/
-      title: List Your Cause
-    - href: https://www.iGive.com/causetoolbox/
-      title: Marketing Tools and Tips
-    - href: /contact/
-      title: Contact Us
-
-- title: About iGive
-  items:
-    - href: https://support.igive.com/kb/merchants/info-for-merchants/
-      title: Merchant Information
-    - href: https://www.iGive.com/privacy.cfm
-      title: Privacy Policy
-      newtab: true
-    - href: https://www.iGive.com/tos.cfm
-      title: Terms
-      newtab: true
-    - href: https://www.iGive.com/unsubscribe.cfm
-      title: Unsubscribe
-      newtab: true
-
-- title: Need Help?
-  items: 
-    - href: /contact/
-      title: Send us a message
-      class: "btn btn-white mb-4 w-100"
-      newtab: false
+nav:
+  - title: Using iGive
+    items:
+      - href: /getting-started/shopping-to-support/
+        title: How iGive Works
+      - href: https://www.igive.com/html/allcauses.cfm
+        title: Find a Cause to Support
+      - href: https://www.iGive.com/button
+        title: Install Browser Extension
+      - href: https://www.iGive.com/app
+        title: iGive Mobile App
+  - title: Causes & Nonprofits
+    items:
+      - href: https://support.igive.com/kb/causes/listing-a-cause/
+        title: List Your Cause
+      - href: https://www.iGive.com/causetoolbox/
+        title: Marketing Tools and Tips
+      - href: /contact/
+        title: Contact Us
+  - title: About iGive
+    items:
+      - href: https://support.igive.com/kb/merchants/info-for-merchants/
+        title: Merchant Information
+      - href: https://www.iGive.com/privacy.cfm
+        title: Privacy Policy
+      - href: https://www.iGive.com/tos.cfm
+        title: Terms
+      - href: https://www.iGive.com/unsubscribe.cfm
+        title: Unsubscribe
+  - title: Need Help?
+    items:
+      - href: /contact/
+        title: Send us a message
+        class: btn btn-white mb-4 w-100
+about: iGive allows you to support your favorite cause with a percentage of your online shopping. It's totally free for you and your charity. Shop at your favorite stores and part of what you spend goes to the cause of your choice.
+disclaimer: Nonprofit organizations on iGive.com are listed by members or their affiliates for collective use. Listings do not imply endorsement by either iGive.com or the nonprofits.

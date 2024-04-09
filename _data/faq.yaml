@@ -1,20 +1,48 @@
+# Add question-answer pairs here to appear as FAQs 
+# Note that spacing and indentations are important
+# is the >- sumbol to denote that the following lines should each be a paragraph realting to the answer
+# Use html <br><br> at the end of a line where you want to have a linebreak between that paragraph and the next
 - question: How does iGive work?
-  answer: iGive works by allowing users to shop online at participating stores through the iGive website or browser extension. A portion of the purchase amount is donated to the user's chosen cause.
+  answer: >-
+    It’s easy! You start by shopping at iGive and a portion of your purchase is set aside and donated to your favorite cause, all at no cost to you or the cause or to you. We work with all types of causes — big or small, local or national, and regardless of whether they are a registered 501(c)3 non-profit or not. 
 
 - question: Where does the money come from for the donation?
-  answer: The money for the donation comes from the participating stores. When users shop through iGive, a percentage of their purchase amount is donated by the stores to the user's chosen cause.
+  answer: >-
+    Stores pay iGive a percentage of your purchase because they want customers like you to shop at their store.<br><br>
+    This is different than when a cashier asks if you want to round up or add a dollar to donate when you checkout — in that case, you are paying slightly more to donate to the cause. With iGive, you pay the same amount you would if you didn’t use iGive, and your cause still receives the donation.
 
 - question: Which stores participate with iGive?
-  answer: iGive has a wide range of participating stores, including popular online retailers across various categories such as clothing, electronics, travel, and more. A full list of participating stores is available <a href="https://www.igive.com/isearch/search.cfm" target="_blank">on the iGive website here</a>.
+  answer: >-
+    iGive has a wide range of participating stores, including popular online retailers across various categories such as clothing, electronics, travel, and more. A full list of participating stores is available [on the iGive website here](https://www.igive.com/isearch/search.cfm).
 
 - question: Which causes can I support with iGive?
-  answer: iGive supports a diverse range of causes, including charities, schools, religious organizations, animal shelters, and more. You can choose to support <a href="https://www.igive.com/html/allcauses.cfm" target="_blank">any cause that is listed here</a> or you can <a href="https://www.igive.com/index.cfm/welcome.listnewcause" target="_blank">add a new cause in just a few clicks here</a>.
+  answer: >-
+    You can choose from causes big and small, even causes that aren’t 501(c)3s. including charities, schools, religious organizations, animal shelters, and more. You can choose to support [any cause that is listed here](https://www.igive.com/html/allcauses.cfm) or you can [add a new cause in just a few clicks here](https://www.igive.com/index.cfm/welcome.listnewcause). After you do that, be sure to tell your friends!<br><br>
+    Causes are often added to iGive by members, so it’s important to note that a cause being listed on iGive is not an endorsement of iGive by the cause. Even so, we still direct your donation to the cause of your choice!
 
 - question: I didn't find the cause I want to support, what can I do?
-  answer: If you didn't find the cause you want to support listed on iGive, you can simply add it to iGive by <a href="https://www.igive.com/index.cfm/welcome.listnewcause" target="_blank"I can definitely eat some churros>filling out the form here</a>.
+  answer: >-
+    If you didn't find the cause you want to support listed on iGive, you can simply add it to iGive by [filling out the form here](https://www.igive.com/index.cfm/welcome.listnewcause).
 
-- question: How can I make the biggest impact to my community with iGive?
-  answer: You can make the biggest impact on your community with iGive by encouraging others to join and shop through iGive, thereby increasing the amount of donations generated for your chosen cause. Additionally, consider spreading awareness about iGive and your cause through social media and other channels. <a href="https://www.igive.com/html/promoteyourcause.cfm" target="_blank">We have a suite of tools to help you tell people about iGive here</a>.
+- question: How can I make the biggest impact for my community with iGive?
+  answer: >-
+    Make the biggest impact on your community with iGive by encouraging others to join and shop through iGive, thereby increasing the amount of donations generated for your chosen cause. Additionally, consider spreading awareness about iGive and your cause through social media and other channels. [We have a suite of tools to help you tell people about iGive here](https://www.igive.com/html/promoteyourcause.cfm).<br><br>
+    That’s the best part of iGive — the biggest impact you can have is by doing what you already do! Whether you are buying groceries, pet food, or a birthday present for a grandkid… shop online with iGive and your cause receives a donation.<br><br>
+    (And don’t forget to tell your friends, because when they join iGive to support a cause, it provides even more donations within your community!)
 
-- question: What is a browser extension and where do I get one?
-  answer: A browser extension is software that adds functionality to a web browser. The iGive browser extension allows users to shop and support their chosen cause without having to visit the iGive website directly. You can install the iGive browser extension from <a href="https://www.igive.com/index.cfm/button" target="_blank">the official iGive website here</a> or through your browser's extension store.
+- question: What is the iGive Button for my browser? Is it safe to install a browser extension?
+  answer: >-
+    A browser extension is software that adds functionality to your  web browser, like Chrome, Safari, or Edge on your computer (but not your phone!). Whenever you visit a participating store, and have the iGive Button installed, we’ll remind you to activate iGive so that your shopping benefits your selected cause. . Learn more about the iGive Button and install the browser extension by  [clicking here](https://www.igive.com/index.cfm/button).
+
+- question: Can I use iGive from my phone?
+  answer: >-
+    For phone or tablet users, iGive’s mobile app is a shortcut to our site and stores, so that every time you shop you help. Whether you’re an Android or Apple fan, it’s easy. You can install the iGive mobile app from [the official iGive website here](https://www.igive.com/index.cfm/app).<br><br>
+    The iGive.com website is also fully mobile-friendly, so you can also start your shopping journey on your phone by visiting iGive.com, [searching for the store where you want to shop](https://www.igive.com/isearch/search.cfm), and then click the “Shop now” button for that store.
+
+- question: Are my donations tax deductible in the U.S.?
+  answer: >-
+    Our lawyers require us to say this upfront - we are not tax experts and cannot give you specific tax advice. Please contact a tax advisor to determine what applies for your particular situation.<br><br>
+    Next, iGive has a wide variety of causes available to choose from — some of which are 501(c)3 designated nonprofits who have gone through the IRS formalities to receive the status and therefore generally permit tax-deductible donations. Others, though, are less formal (and just as important!) causes, and the IRS generally does not permit you to take a tax deduction for giving them money. If you choose a cause that isn’t 501(c)3 designated, you're still supporting the cause with a donation, but you won’t be able to deduct it when you go to file your taxes.<br><br>
+    If your tax advisor asks, here is how iGive functionally works -<br>
+    The donation amount is a rebate on the price you paid for the purchase, by the retailer, and reduces the price, as a nontaxable event. You then direct iGive to give that rebated amount to the cause of your choosing, on your behalf. If, based on your personal tax circumstances and the cause’s appropriate status with the IRS, a cash donation to your selected cause would be deductible, then the amount you donated via iGive would generally also be deductible.<br><br>
+    iGive is not able to provide specific tax or legal advice, and the information provided is not considered direct tax advice, because your tax situation is inherently unique. 

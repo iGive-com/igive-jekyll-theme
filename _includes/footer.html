@@ -5,22 +5,22 @@
                 <div class="mb-4">
                     <div class="d-flex align-items-center mb-4">
                         <img src="{{ '/assets/images/logo-igive.png' | absolute_url }}" width="140" height="36" alt="iGive Logo">
-                        <span class="small text-white fw-bold ps-1 pt-2">Help Center</span>
+                        <span class="small text-white fw-bold ps-1 pt-2">{{ site.logo_tag }}</span>
                     </div>
                     <p class="text-white">
-                        iGive allows you to support your favorite cause with a percentage of your online shopping. It's totally free for you and your charity. Shop at your favorite stores and part of what you spend goes to the cause of your choice.
+                        {{ site.data.footer.about }}
                     </p>
                 </div>
             </div>
 
-            {% for item in site.data.footer %}
+            {% for item in site.data.footer.nav %}
                 <div class="col-lg-2 col-md-4 col-12">
                     <div class="mb-4">
                         <p class="h4 mb-4 text-white">{{ item.title }}</p>
                         <ul class="list-unstyled list-group">
                             {% for item in item.items %}
                                 <li class="list-group-item">
-                                    <a href="{{ item.href | absolute_url }}" class="{{ item.class | default: 'list-group-item-link text-white' }}"{% if item.newtab == true %} target="_blank"{% endif %} >{{ item.title }}</a>
+                                    <a href="{{ item.href | absolute_url }}" class="{{ item.class | default: 'list-group-item-link text-white' }}">{{ item.title }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -29,16 +29,11 @@
             {% endfor %}
 
             <div class="col-md-12">
-                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
                     <p>
                         © 1997-{{ site.time | date: '%Y' }} iGive.com<sup>®</sup> Holdings, LLC. All rights reserved.                       
                     </p>
-                    <p>
-                        <small>
-                            Causes, including nonprofits and charities, may be listed on iGive by supporters. The presence of a cause on iGive does not indicate endorsement by the cause or, inversely, endorsement of the cause by iGive.
-                        </small>
-                    </p>
-                    <ul class="list-unstyled d-flex">
+                    <ul class="list-unstyled d-flex m-0">
                         <li class="me-3">
                             <a class="link-body-emphasis" href="https://www.twitter.com/iGiveDoYou" target="_blank" aria-label="Follow us on Twitter">
                                 <i class="fa-brands fa-x-twitter text-white" width="24" height="24"></i>
@@ -50,6 +45,13 @@
                             </a>
                         </li>
                     </ul>
+                </div>
+                <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
+                    <p>
+                        <small>
+                            {{ site.data.footer.disclaimer }}
+                        </small>
+                    </p>
                 </div>
             </div>
         </div>
