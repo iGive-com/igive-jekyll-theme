@@ -1,5 +1,8 @@
-- title: Home
-  url: /
-
-- title: FAQ
-  url: faq
+links:
+  - title: Home
+    url: /
+  - title: FAQ
+    url: faq
+button:
+  - title: Visit iGive.com
+    url: https://www.igive.com
