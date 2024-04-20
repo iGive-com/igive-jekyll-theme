@@ -30,8 +30,8 @@
 
     <!-- Facebook integration -->
     <meta property="og:title" content="{{ page.title }}"/>
-    {% if page.image %}<meta property="og:image" content="{{ page.image }}"/>{% endif %}
-    <meta property="og:url" content="{{ page.url }}"/>
+    {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}"/>{% endif %}
+    <meta property="og:url" content="{{ page.url | absolute_url }}"/>
     <meta property="og:type" content="{% if page.layout == 'post' %}article{% elsif page.layout == 'page' %}page{% else %}website{% endif %}">
     <meta property="og:site_name" content="{{ site.title }}"/>
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
@@ -40,8 +40,8 @@
     <meta name="twitter:card" content="summary">
     {% if site.twitter_username %}<meta name="twitter:site" content="https://www.twitter.com/{{ site.twitter_username }}">{% endif %}
     <meta name="twitter:title" content="{{ page.title }}"/>
-    {% if page.image %}<meta name="twitter:image" content="{{ page.image }}"/>{% endif %}
-    <meta name="twitter:url" content="{{ page.url }}"/>
+    {% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}"/>{% endif %}
+    <meta name="twitter:url" content="{{ page.url | absolute_url }}"/>
     <meta name="twitter:description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
@@ -52,7 +52,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}">
     <script src="https://kit.fontawesome.com/30103c6448.js" crossorigin="anonymous"></script>
-    <script src="{{ '/assets/js/jquery.min.js' }}"></script>
+    <script src="{{ '/assets/js/jquery.min.js' | absolute_url }}"></script>
     <script>
         // Redirect to search page with ?q= query for PageFind results
         function getParameterByName(name, url = window.location.href) {

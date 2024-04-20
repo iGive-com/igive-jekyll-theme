@@ -21,10 +21,10 @@ nav:
     items:
       - href: https://support.igive.com/kb/merchants/info-for-merchants/
         title: Merchant Information
-      - href: https://www.iGive.com/privacy.cfm
+      - href: /privacy-policy/
         title: Privacy Policy
-      - href: https://www.iGive.com/tos.cfm
-        title: Terms
+      - href: /terms-of-service/
+        title: Terms of Service
       - href: https://www.iGive.com/unsubscribe.cfm
         title: Unsubscribe
   - title: Need Help?

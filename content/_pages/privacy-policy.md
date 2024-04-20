@@ -1,6 +1,7 @@
 ---
 title: Privacy Policy
-sitemap: false
+# permalink: /privacy-policy/
+# sitemap: false
 ---
 
 This is the home of the privacy policy.
