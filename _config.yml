@@ -1,4 +1,4 @@
-title: iGive Member Support
+title: iGive Causes Support
 email: support@igive.com
 description: >-
   Have questions about using iGive.com or our browser extension when shopping online to raise money for your favorite local cause?
@@ -6,10 +6,19 @@ baseurl: ""
 twitter_username: iGiveDoYou
 facebook_username: iGive
 gtm: GTM-TTQQRM
-logo_tag: Help Center
+logo_tag: For Causes
 
+theme: igive-jekyll-theme
+
+collections_dir: content
 collections:
   pages:
+    output: true
+    permalink: /:path/
+  posts:
+    output: true
+    permalink: /:categories/:title/
+  authors:
     output: true
 
 keep_files: ["pagefind"]
@@ -22,15 +31,13 @@ toc:
 
 defaults:
   - scope:
-      path: "_pages"
+      type: "pages"
     values:
-      layout: "page"
-      permalink: "/:title/index.html"
+      layout: page
   - scope:
-      type: posts
+      type: "posts"
     values:
-      permalink: "/:categories/:title/index.html"
-      layout: "post"
+      layout: post
       toc: true
 
 pagination:

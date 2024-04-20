@@ -3,7 +3,7 @@
 
         <div class="d-flex align-items-center">
             <a class="navbar-brand @@brandLogo me-1" href="{{ '/' | absolute_url }}"><img src="{{ '/assets/images/logo-igive.png' | absolute_url }}" alt="iGive Logo" height="36" width="140"></a>
-            <span class="small text-white fw-bold ps-1 pt-2">
+            <span class="small text-white fw-light ps-1 pt-2">
                 {{ site.logo_tag }}
             </span>
         </div>
@@ -35,7 +35,7 @@
                         </form>
                     </li>
 
-                    {% for item in site.data.navbar %}
+                    {% for item in site.data.navbar.links %}
                         {% if item.subitems %}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ forloop.index }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,9 +58,11 @@
                         {% endif %}
                     {% endfor %}
 
+                    {% if site.data.navbar.button %}
                     <div class="d-flex align-items-center">
-                        <a href="https://www.igive.com/default.cfm" class="btn btn-outline-white btn-sm">Visit iGive.com</a>
+                        <a href="{{ site.data.navbar.button[0].url }}" class="btn btn-outline-white btn-sm">{{ site.data.navbar.button[0].title }}</a>
                     </div>
+                    {% endif %}
 
                 </ul>
             </div>
