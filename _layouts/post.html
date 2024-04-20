@@ -2,52 +2,7 @@
 layout: default
 ---
 
-<!-- Page hero -->
-<div class="bg-shape bg-primary">
-    <div class="container">
-        <div class="row">
-            <div class="offset-xl-1 col-xl-10 col-lg-12 col-md-12 col-12">
-                <div class="pt-lg-18 pb-lg-16 py-12 ">
-                    <div class="row align-items-center">
-                        <div class="col-lg-12 col-md-12 col-12 mb-3 d-none d-lg-block">
-                            {% include breadcrumbs.html %}
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-12 mb-3">
-                            {% assign tag_slug = page.title %}
-                            {% assign category_slug = page.title %}
-                            {% assign tag_data = site.data.tags | where : "slug",
-                            tag_slug | first %}
-                            {% assign category_data = site.data.categories | where : "slug",
-                            category_slug | first %}
-
-                            <h1 class="h2 text-white mb-2" data-pagefind-meta="title">
-                                {% if tag_data %}
-                                    {{ tag_data.title }}
-                                    {% elsif category_data %}
-                                    {{ category_data.title }}
-                                {% else %}
-                                    {{ page.title | replace: '-', ' ' }}
-                                {% endif %}
-                            </h1>
-
-                            <p class="text-white lead">
-                                {% if tag_data %}
-                                    {{ tag_data.description }}
-                                    {% elsif category_data %}
-                                    {{ category_data.description }}
-                                    {% elsif page.description %}
-                                    {{ page.description }}
-                                {% else %}
-                                    Get iGive account, profile, our favorite tips, and hands-on help.
-                                {% endif %}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% include pageheader.html %}
 
 <div class="pb-10 mt-n10">
     <div class="container">
