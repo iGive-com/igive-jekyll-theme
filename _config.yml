@@ -1,4 +1,4 @@
-title: iGive Causes Support
+title: iGive
 email: support@igive.com
 description: >-
   Have questions about using iGive.com or our browser extension when shopping online to raise money for your favorite local cause?
@@ -7,8 +7,6 @@ twitter_username: iGiveDoYou
 facebook_username: iGive
 gtm: GTM-TTQQRM
 logo_tag: For Causes
-
-theme: igive-jekyll-theme
 
 collections_dir: content
 collections:
@@ -21,10 +19,11 @@ collections:
   authors:
     output: true
 
-keep_files: ["pagefind"]
+keep_files: ["pagefind", "assets/pwa"]
 
 include: ['.htaccess']
 exclude: ['readme.md', 'Gemfile.lock', 'Gemfile']
+
 toc:
   list_class: list-unstyled
   item_class: toc-entry toc-h4 mb-2

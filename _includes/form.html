@@ -57,12 +57,12 @@
                         (() => {
                             'use strict';
 
-                            // Function to handle form submission
+                            /* Function to handle form submission */
                             const handleFormSubmit = (event) => {
-                                event.preventDefault(); // Prevent form submission
+                                event.preventDefault(); /* Prevent form submission */
                                 const form = event.target;
 
-                                // Check if form is valid
+                                /* Check if form is valid */
                                 if (!form.checkValidity()) {
                                     event.stopPropagation();
                                 } else {
@@ -92,7 +92,7 @@
                                     .add('was-validated');
                             };
 
-                            // Function to apply custom Bootstrap validation styles to forms
+                            /* Function to apply custom Bootstrap validation styles to forms */
                             const applyValidationStyles = () => {
                                 const forms = document.querySelectorAll('.needs-validation');
                                 Array
@@ -102,7 +102,7 @@
                                     });
                             };
 
-                            // Call the function to apply validation styles
+                            /* Call the function to apply validation styles */
                             applyValidationStyles();
                         })();
                     </script>
