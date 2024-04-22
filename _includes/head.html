@@ -2,11 +2,22 @@
     <meta charset="UTF-8">
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','{{ site.gtm }}');</script>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer'
+                    ? '&l=' + l
+                    : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f
+                .parentNode
+                .insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', '{{ site.gtm }}');
+    </script>
     <!-- End Google Tag Manager -->
 
     <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -23,10 +34,16 @@
     ' ' | truncate : 160 %}
     <meta name="description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}">
 
-    <link rel="shortcut icon" type="image/png" href="{{ '/assets/images/icon-192x192.png' | absolute_url }}">
-    <link rel="shortcut icon" sizes="192x192" href="{{ '/assets/images/icon-192x192.png' | absolute_url }}">
-    <link rel="apple-touch-icon" href="{{ '/assets/images/icon-192x192.png' | absolute_url }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | absolute_url }}">
+    <!-- PWA -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/pwa/apple-touch-icon.png' | absolute_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/pwa/favicon-32x32.png' | absolute_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/pwa/favicon-16x16.png' | absolute_url }}">
+    <link rel="manifest" href="{{ '/assets/pwa/site.webmanifest' | absolute_url }}">
+    <link rel="mask-icon" href="{{ '/assets/pwa/safari-pinned-tab.svg' | absolute_url }}" color="#ea8900">
+    <meta name="apple-mobile-web-app-title" content="iGive.com">
+    <meta name="application-name" content="iGive.com">
+    <meta name="msapplication-TileColor" content="#ea8900">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Facebook integration -->
     <meta property="og:title" content="{{ page.title }}"/>
@@ -45,16 +62,17 @@
     <meta name="twitter:description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ 'feed.xml' | absolute_url }}">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ 'sitemap.xml' | absolute_url }}"/>
-    <link rel="alternate" type="application/rss+xml" href="{{ 'feed.xml' | absolute_url }}">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}">
+
+    <!-- Head Scripts -->
     <script src="https://kit.fontawesome.com/30103c6448.js" crossorigin="anonymous"></script>
     <script src="{{ '/assets/js/jquery.min.js' | absolute_url }}"></script>
     <script>
-        // Redirect to search page with ?q= query for PageFind results
+        /* Redirect to search page with ?q= query for PageFind results */
         function getParameterByName(name, url = window.location.href) {
             name = name.replace(/[\[\]]/g, "\\$&");
             var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -66,7 +84,7 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        // Crisp Chatbot
+        /* Crisp Chatbot */
         window.$crisp = [];
         window.CRISP_WEBSITE_ID = "520aa220-9642-49ba-81ac-1a46eef47fc2";
         (function () {
@@ -78,5 +96,19 @@
                 .getElementsByTagName("head")[0]
                 .appendChild(s);
         })();
+
+        /* PWA Service Worker */
+        if ('serviceWorker' in navigator) {
+            /* Wait until window is loaded before registering. */
+            window.addEventListener('load', () => {
+                /* Register the service worker with "/" as it's scope. */
+                navigator
+                    .serviceWorker
+                    .register('assets/pwa/sw.js', {scope: '/'})
+                    /* Output success/failure of registration. */
+                    .then(() => console.log('SW registered'))
+                    .catch(() => console.error('SW registration failed'));
+            });
+        }
     </script>
 </head>
