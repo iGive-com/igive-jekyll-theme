@@ -1,6 +1,7 @@
 <head>
     <meta charset="UTF-8">
 
+    {% if jekyll.environment == "production" %}
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -19,6 +20,7 @@
         })(window, document, 'script', 'dataLayer', '{{ site.gtm }}');
     </script>
     <!-- End Google Tag Manager -->
+    {% endif %}
 
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +34,7 @@
     ': ' | replace : '</h4>',
     ': ' | strip_html | strip_newlines | replace : '  ',
     ' ' | truncate : 160 %}
-    <meta name="description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% elsif pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}">
 
     <!-- PWA -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/pwa/apple-touch-icon.png' | absolute_url }}">
@@ -47,19 +49,19 @@
 
     <!-- Facebook integration -->
     <meta property="og:title" content="{{ page.title }}"/>
-    {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}"/>{% endif %}
     <meta property="og:url" content="{{ page.url | absolute_url }}"/>
     <meta property="og:type" content="{% if page.layout == 'post' %}article{% elsif page.layout == 'page' %}page{% else %}website{% endif %}">
     <meta property="og:site_name" content="{{ site.title }}"/>
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
+    <meta property="og:image" content="{{ page.image | default: '/assets/images/og_image.png' | absolute_url }}"/>
 
     <!-- Twitter integration -->
     <meta name="twitter:card" content="summary">
     {% if site.twitter_username %}<meta name="twitter:site" content="https://www.twitter.com/{{ site.twitter_username }}">{% endif %}
     <meta name="twitter:title" content="{{ page.title }}"/>
-    {% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}"/>{% endif %}
+    <meta name="twitter:image" content="{{ page.image | default: '/assets/images/og_image.png' | absolute_url }}"/>
     <meta name="twitter:url" content="{{ page.url | absolute_url }}"/>
-    <meta name="twitter:description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ 'feed.xml' | absolute_url }}">
@@ -67,9 +69,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}">
+    <link href="{{ '/assets/fontawesome/css/fontawesome.css' | absolute_url }}" rel="stylesheet" />
+    <link href="{{ '/assets/fontawesome/css/brands.css' | absolute_url }}" rel="stylesheet" />
+    <link href="{{ '/assets/fontawesome/css/solid.css' | absolute_url }}" rel="stylesheet" />
 
     <!-- Head Scripts -->
-    <script src="https://kit.fontawesome.com/30103c6448.js" crossorigin="anonymous"></script>
     <script src="{{ '/assets/js/jquery.min.js' | absolute_url }}"></script>
     <script>
         /* Redirect to search page with ?q= query for PageFind results */
@@ -84,6 +88,7 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
+        {% if jekyll.environment == "development" %}
         /* Crisp Chatbot */
         window.$crisp = [];
         window.CRISP_WEBSITE_ID = "520aa220-9642-49ba-81ac-1a46eef47fc2";
@@ -96,6 +101,7 @@
                 .getElementsByTagName("head")[0]
                 .appendChild(s);
         })();
+        {% endif %}
 
         /* PWA Service Worker */
         if ('serviceWorker' in navigator) {
