@@ -24,6 +24,9 @@ keep_files: ["pagefind", "assets/pwa"]
 include: ['.htaccess']
 exclude: ['readme.md', 'Gemfile.lock', 'Gemfile']
 
+plugins:
+  - jekyll-feed
+
 toc:
   list_class: list-unstyled
   item_class: toc-entry toc-h4 mb-2
