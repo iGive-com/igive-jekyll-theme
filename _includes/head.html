@@ -2,24 +2,24 @@
     <meta charset="UTF-8">
 
     {% if jekyll.environment == "production" %}
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer'
-                    ? '&l=' + l
-                    : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f
-                .parentNode
-                .insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', '{{ site.gtm }}');
-    </script>
-    <!-- End Google Tag Manager -->
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer'
+                        ? '&l=' + l
+                        : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f
+                    .parentNode
+                    .insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', '{{ site.gtm }}');
+        </script>
+        <!-- End Google Tag Manager -->
     {% endif %}
 
     <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -69,13 +69,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}">
-    <link href="{{ '/assets/fontawesome/css/fontawesome.css' | absolute_url }}" rel="stylesheet" />
-    <link href="{{ '/assets/fontawesome/css/brands.css' | absolute_url }}" rel="stylesheet" />
-    <link href="{{ '/assets/fontawesome/css/solid.css' | absolute_url }}" rel="stylesheet" />
+    <link href="{{ '/assets/fontawesome/css/fontawesome.css' | absolute_url }}" rel="stylesheet"/>
+    <link href="{{ '/assets/fontawesome/css/brands.css' | absolute_url }}" rel="stylesheet"/>
+    <link href="{{ '/assets/fontawesome/css/solid.css' | absolute_url }}" rel="stylesheet"/>
 
     <!-- Head Scripts -->
     <script src="{{ '/assets/js/jquery.min.js' | absolute_url }}"></script>
     <script>
+
         /* Redirect to search page with ?q= query for PageFind results */
         function getParameterByName(name, url = window.location.href) {
             name = name.replace(/[\[\]]/g, "\\$&");
@@ -88,33 +89,32 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        {% if jekyll.environment == "development" %}
-        /* Crisp Chatbot */
-        window.$crisp = [];
-        window.CRISP_WEBSITE_ID = "520aa220-9642-49ba-81ac-1a46eef47fc2";
-        (function () {
-            d = document;
-            s = d.createElement("script");
-            s.src = "https://client.crisp.chat/l.js";
-            s.async = 1;
-            d
-                .getElementsByTagName("head")[0]
-                .appendChild(s);
-        })();
+        {% if jekyll.environment == "production" %}
+            /* Crisp Chatbot */
+            window.$crisp = [];
+            window.CRISP_WEBSITE_ID = "520aa220-9642-49ba-81ac-1a46eef47fc2";
+            (function () {
+                d = document;
+                s = d.createElement("script");
+                s.src = "https://client.crisp.chat/l.js";
+                s.async = 1;
+                d
+                    .getElementsByTagName("head")[0]
+                    .appendChild(s);
+            })();
+            /* PWA Service Worker */
+            if ('serviceWorker' in navigator) {
+                /* Wait until window is loaded before registering. */
+                window.addEventListener('load', () => {
+                    /* Register the service worker with "/" as it's scope. */
+                    navigator
+                        .serviceWorker
+                        .register('/sw.js', {scope: '/'})
+                        /* Output success/failure of registration. */
+                        .then(() => console.log('SW registered'))
+                        .catch(() => console.error('SW registration failed'));
+                });
+            }
         {% endif %}
-
-        /* PWA Service Worker */
-        if ('serviceWorker' in navigator) {
-            /* Wait until window is loaded before registering. */
-            window.addEventListener('load', () => {
-                /* Register the service worker with "/" as it's scope. */
-                navigator
-                    .serviceWorker
-                    .register('/sw.js', {scope: '/'})
-                    /* Output success/failure of registration. */
-                    .then(() => console.log('SW registered'))
-                    .catch(() => console.error('SW registration failed'));
-            });
-        }
     </script>
 </head>
