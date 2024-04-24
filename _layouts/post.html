@@ -29,8 +29,10 @@ layout: default
                                         <hr/>
                                     </div>
                                     <div id="table-of-contents">
+                                        {% if page.toc = true %}
                                         <h5>On this page:</h5>
                                         {{ content | toc_only }}
+                                        {% endif %}
                                     </div>
                                     <hr/>
                                     <div class="d-none d-lg-block text-center">
