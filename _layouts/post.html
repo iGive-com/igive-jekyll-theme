@@ -29,7 +29,8 @@ layout: default
                                         <hr/>
                                     </div>
                                     <div id="table-of-contents">
-                                        {% if page.toc = true %}
+                                        {%comment%}intentionally broke this to hide it until we fix it{%endcomment%}
+                                        {% if page.toc = 'zzz' %}
                                         <h5>On this page:</h5>
                                         {{ content | toc_only }}
                                         {% endif %}
