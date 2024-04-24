@@ -3,5 +3,26 @@ layout: base
 ---
 
 <main class="bg-white">
-  {{ content }}
+  <div class="container py-17">
+    <h1>{{ site.title | default: 'iGive' }} User Guide</h1>
+    <p class="lead">This user guide serves as a print-out of all content available on this site.</p>
+
+    <ul id="table-of-contents">
+      {% for post in site.posts %}
+        <li><a href="#{{ post.title | slugify }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <hr class="my-4">
+
+    {{ content }}
+
+    {% for post in site.posts %}
+      <section id="{{ post.title | slugify }}">
+        <h2>{{ post.title }}</h2>
+        <div>{{ post.content | markdownify }}</div>
+      </section>
+      <hr class="my-4">
+    {% endfor %}
+  </div>
 </main>
