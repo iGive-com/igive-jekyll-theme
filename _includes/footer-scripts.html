@@ -3,5 +3,15 @@
 <script src="{{ '/assets/js/jquery.slimscroll.min.js' | absolute_url }}"></script>
 <script src="{{ '/pagefind/pagefind-ui.js' | absolute_url }}"></script>
 <script src="{{ '/assets/js/main.js' | absolute_url }}"></script>
+<script src="{{ '/assets/js/simpleParallax.min.js' | absolute_url }}"></script>
+
+<script>
+    var image = document.getElementsByClassName('paralax');
+    new simpleParallax(image, {
+        delay: .6,
+        transition: 'cubic-bezier(0,0,0,1)'
+    });
+</script>
+
 {% include new-window-fix.html %}
 {% include schema.html %}
