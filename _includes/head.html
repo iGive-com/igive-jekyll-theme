@@ -40,7 +40,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/pwa/apple-touch-icon.png' | absolute_url }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/pwa/favicon-32x32.png' | absolute_url }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/pwa/favicon-16x16.png' | absolute_url }}">
-    <link rel="manifest" href="{{ '/assets/pwa/site.webmanifest' | absolute_url }}">
+    <link rel="manifest" href="{{ '/assets/pwa/manifest.json' | absolute_url }}">
     <link rel="mask-icon" href="{{ '/assets/pwa/safari-pinned-tab.svg' | absolute_url }}" color="#ea8900">
     <meta name="apple-mobile-web-app-title" content="iGive.com">
     <meta name="application-name" content="iGive.com">
@@ -110,7 +110,7 @@
                 /* Register the service worker with "/" as it's scope. */
                 navigator
                     .serviceWorker
-                    .register('assets/pwa/sw.js', {scope: '/'})
+                    .register('/sw.js', {scope: '/'})
                     /* Output success/failure of registration. */
                     .then(() => console.log('SW registered'))
                     .catch(() => console.error('SW registration failed'));
