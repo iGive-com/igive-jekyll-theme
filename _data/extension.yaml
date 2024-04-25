@@ -1,17 +1,23 @@
 - platform: chrome
+  icon: fa-brands fa-chrome
   url: https://chrome.google.com/webstore/detail/igcjdamjhkmdccbmbilbpabpofenchge
 
 - platform: edge
+  icon: fa-brands fa-edge
   url: https://microsoftedge.microsoft.com/addons/detail/igive-button/kjilalnbmgadedjdojlmofpalendejkp
 
 - platform: firefox
+  icon: fa-brands fa-firefox
   url: https://addons.mozilla.org/en-US/firefox/addon/igive-button/
 
 - platform: safari
+  icon: fa-brands fa-safari
   url: https://apps.apple.com/us/app/igive-button/id1498568131?mt=12
 
 - platform: mobile
+  icon: fa-solid fa-mobile-button
   url: https://www.igive.com/app
 
 - platform: unknown
+  icon: fa-solid fa-download
   url: https://www.igive.com/button
