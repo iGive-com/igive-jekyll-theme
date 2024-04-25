@@ -27,7 +27,7 @@ exclude: ['readme.md', 'Gemfile.lock', 'Gemfile']
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-toc
+  # - jekyll-toc
 
 toc:
   list_class: list-unstyled
