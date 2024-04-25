@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "igive-jekyll-theme"
-  spec.version       = "0.1.5"
+  spec.version       = "0.1.6"
   spec.authors       = ["iGive.com"]
   spec.email         = ["objectif@igive.com"]
 
