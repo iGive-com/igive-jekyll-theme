@@ -14,7 +14,7 @@
                             </button>
                         </h2>
                         <div id="faq{{ forloop.index }}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">{{ item.answer }}</div>
+                            <div class="accordion-body">{{ item.answer | markdownify }}</div>
                         </div>
                     </div>
                 {% endfor %}
