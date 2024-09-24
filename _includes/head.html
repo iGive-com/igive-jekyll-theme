@@ -77,7 +77,6 @@
     <!-- Head Scripts -->
     <script src="{{ '/assets/js/jquery.min.js' | absolute_url }}"></script>
     <script>
-
         /* Redirect to search page with ?q= query for PageFind results */
         function getParameterByName(name, url = window.location.href) {
             name = name.replace(/[\[\]]/g, "\\$&");
@@ -89,33 +88,5 @@
                 return "";
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-
-        // {% if jekyll.environment == "production" %}
-        //     /* Crisp Chatbot */
-        //     window.$crisp = [];
-        //     window.CRISP_WEBSITE_ID = "520aa220-9642-49ba-81ac-1a46eef47fc2";
-        //     (function () {
-        //         d = document;
-        //         s = d.createElement("script");
-        //         s.src = "https://client.crisp.chat/l.js";
-        //         s.async = 1;
-        //         d
-        //             .getElementsByTagName("head")[0]
-        //             .appendChild(s);
-        //     })();
-        //     /* PWA Service Worker */
-        //     if ('serviceWorker' in navigator) {
-        //         /* Wait until window is loaded before registering. */
-        //         window.addEventListener('load', () => {
-        //             /* Register the service worker with "/" as it's scope. */
-        //             navigator
-        //                 .serviceWorker
-        //                 .register('/sw.js', {scope: '/'})
-        //                 /* Output success/failure of registration. */
-        //                 .then(() => console.log('SW registered'))
-        //                 .catch(() => console.error('SW registration failed'));
-        //         });
-        //     }
-        // {% endif %}
     </script>
 </head>
